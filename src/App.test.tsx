@@ -1,15 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { store } from './app/store';
-import App from './App';
+import renderer from 'react-test-renderer';
 
-test('renders learn react link', () => {
-  const { getByText } = render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
+import Form from './app/components/Form/Form';
 
-  expect(getByText(/learn/i)).toBeInTheDocument();
-});
+test('Render input form', () => {
+  const component = renderer.create(
+    <Form />
+  )
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+})
