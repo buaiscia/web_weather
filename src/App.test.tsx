@@ -1,12 +1,20 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import store from './app/store';
 import Form from './app/components/Form/Form';
 
 test('Render input form', () => {
-  const component = renderer.create(
-    <Form />
+  const { getAllByText } = render(
+    <Provider store={store}>
+      <Form />
+    </Provider>
+
   )
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+  const elements = getAllByText('Select');
+  elements.forEach((element) => {
+    expect(element.textContent).toBe('Select')
+  })
+
 })
+

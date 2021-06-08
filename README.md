@@ -24,20 +24,17 @@ Install the project with npm
 It should look like this:
 
 ```bash 
-  SKIP_PREFLIGHT_CHECK=true
   REACT_APP_API_KEY=key_here
   REACT_APP_ENDPOINT=https://api.openweathermap.org/data/2.5/weather
 
 ```
-SKIP_PREFLIGHT_CHECK is inserted for a dependency issue, which could be solved with some more time.
-
 
 ```bash 
   npm install
   npm run start
 ```
 
-    
+
 ## Running Tests
 
 To run tests, run the following command. 
@@ -46,5 +43,4 @@ To run tests, run the following command.
   npm run test
 ```
 
-On a note, I just had time to create one small test against a snapshot, but I had some issue with the packages to make it work.
-  
+On a note, I just had time to create one small test.
